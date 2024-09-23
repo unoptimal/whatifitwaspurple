@@ -39,10 +39,11 @@
         }
     
         h1 {
-            font-size: 4em;
+            font-size: 6em;
             line-height: 1.2;
             color: white;
             -webkit-text-stroke: 2.5px black;
+            margin: 30px;
         }
     
         h1 .purple {
@@ -195,9 +196,10 @@
             }
     
             h1 {
-                font-size: 2em;
+                font-size: 4em;
                 margin-top: 10px;
                 -webkit-text-stroke: 1.5px black;
+                margin: 10px;
             }
     
             .button-container {
@@ -247,9 +249,10 @@
     
         @media (max-width: 480px) {
             h1 {
-                font-size: 1.5em;
+                font-size: 3rem;
                 margin-top: 10px;
-                -webkit-text-stroke: 1px black;
+                -webkit-text-stroke: .5px black;
+                margin: 10px;
             }
     
             #imageContainer img {
@@ -393,20 +396,21 @@
         document.body.style.overflow = "hidden"; // Prevent background scrolling
     }
 
-    span.onclick = function() {
-        modal.style.visibility = "hidden";
-        modal.style.opacity = "0"; // Hide the modal
-        document.body.style.overflow = "auto"; // Re-enable scrolling
+        function closeModal() {
+        modal.style.opacity = "0";
+        document.body.style.overflow = "auto";
+        setTimeout(() => {
+            modal.style.visibility = "hidden";
+        }, 300); // Match this to your CSS transition duration
     }
+
+    span.onclick = closeModal;
 
     window.onclick = function(event) {
         if (event.target == modal) {
-            modal.style.visibility = "hidden";
-            modal.style.opacity = "0"; // Hide the modal
-            document.body.style.overflow = "auto"; // Re-enable scrolling
+            closeModal();
         }
     }
-
 
     </script>
 </body>
